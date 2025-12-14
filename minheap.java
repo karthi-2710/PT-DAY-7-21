@@ -1,0 +1,30 @@
+import java.util.*;
+public class minheap
+{
+    public static void insertHeap(ArrayList<Integer> ar, int d){
+        ar.add(d);
+        int i=ar.size()-1;
+        while(i>=0){
+            int parent=(i-1)/2;
+            if(ar.get(parent)>ar.get(i)){
+                int temp=ar.get(i);
+                ar.set(i,ar.get(temp));
+                ar.set(parent,temp);
+            }
+            else{
+                break;
+            }
+            i=parent;
+        }
+    }
+    public static void main(String[] args) {
+        int[] arr={1,7,8,9,2,4,17,18,31,0,12,11};
+        ArrayList<Integer> ar = new ArrayList<>();
+        for(int i:arr){
+            insertHeap(ar,i);
+        }
+        for(int i:ar){
+            System.out.print(i+" ");
+        }
+    }
+}
